@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motion — Elevation Forecast</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="app-shell">
+        <header class="hero">
+            <div>
+                <h1>Motion</h1>
+                <p>Plan alpine hikes with trail weather, safety checks, wind & rain analytics, and active alerts.</p>
+            </div>
+            <div class="selector-panel">
+                <label for="city-select">Select a region</label>
+                <select id="city-select"></select>
+            </div>
+        </header>
+
+        <nav class="tabs" aria-label="Main navigation">
+            <a class="tab" href="index.html">Overview</a>
+            <a class="tab" href="trailMap.html">Trail Map</a>
+            <a class="tab active" href="elevationForecast.html">Elevation Forecast</a>
+            <a class="tab" href="windRain.html">Wind & Rain</a>
+            <a class="tab" href="safety.html">Safety</a>
+            <a class="tab" href="alerts.html">Alerts</a>
+        </nav>
+
+        <main>
+            <section id="elevation" class="page-section">
+                <div class="card elevation-card">
+                    <div class="elevation-header">
+                        <div>
+                            <h2>Elevation bands</h2>
+                            <p>Compare temperature, precipitation, and snow risk from 800m valley to 3,400m high alpine.</p>
+                        </div>
+                        <div class="metric-detail">
+                            <span class="metric">3,400m</span>
+                            <p class="metric-meta">Highest forecast band</p>
+                        </div>
+                    </div>
+                    <div id="elevation-chart" class="chart-container"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script type="module" src="scripts.js"></script>
+</body>
+</html>
