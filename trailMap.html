@@ -20,12 +20,14 @@
         </header>
 
         <nav class="tabs" aria-label="Main navigation">
-            <a class="tab" href="index.html">Overview</a>
-            <a class="tab active" href="trailMap.html">Trail Map</a>
-            <a class="tab" href="elevationForecast.html">Elevation Forecast</a>
-            <a class="tab" href="windRain.html">Wind & Rain</a>
-            <a class="tab" href="safety.html">Safety</a>
-            <a class="tab" href="alerts.html">Alerts</a>
+            <ul class="tab-list">
+                <li><a class="tab" href="index.html">Overview</a></li>
+                <li><a class="tab active" aria-current="page" href="trailMap.html">Trail Map</a></li>
+                <li><a class="tab" href="elevationForecast.html">Elevation Forecast</a></li>
+                <li><a class="tab" href="windRain.html">Wind & Rain</a></li>
+                <li><a class="tab" href="safety.html">Safety</a></li>
+                <li><a class="tab" href="alerts.html">Alerts</a></li>
+            </ul>
         </nav>
 
         <main>
@@ -41,7 +43,7 @@
                 </div>
                 <div class="map-grid">
                     <div id="map" class="map-view">
-                        <div class="map-image"></div>
+                        <div id="google-map" class="map-canvas"></div>
                         <div class="trail-overlay" id="trail-overlay"></div>
                     </div>
                     <aside class="card trail-summary" id="waypoint-panel">
@@ -54,5 +56,6 @@
         </main>
     </div>
     <script type="module" src="scripts.js"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtqq1pQ9Eo5x_oLqvgUh1yrbN6WUvHDW8&callback=initMap"></script>
 </body>
 </html>
