@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motion — Safety</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="app-shell">
+        <header class="hero">
+            <div>
+                <h1>Motion</h1>
+                <p>Plan alpine hikes with trail weather, safety checks, wind & rain analytics, and active alerts.</p>
+            </div>
+            <div class="selector-panel">
+                <label for="city-select">Select a region</label>
+                <select id="city-select"></select>
+            </div>
+        </header>
+
+        <nav class="tabs" aria-label="Main navigation">
+            <ul class="tab-list">
+                <li><a class="tab" href="index.html">Overview</a></li>
+                <li><a class="tab" href="trailMap.html">Trail Map</a></li>
+                <li><a class="tab" href="elevationForecast.html">Elevation Forecast</a></li>
+                <li><a class="tab" href="windRain.html">Wind & Rain</a></li>
+                <li><a class="tab active" aria-current="page" href="safety.html">Safety</a></li>
+                <li><a class="tab" href="alerts.html">Alerts</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="safety" class="page-section">
+                <div class="card safety-grid">
+                    <div>
+                        <h2>Risk overview</h2>
+                        <div id="risk-badge" class="badge moderate">High/ Low/ Moderate</div>
+                        <p class="metric-meta">Evaluated conditions and pack for alpine hazards before every hike.</p>
+                    </div>
+                    <div class="safety-notes card">
+                        <h3>Emergency readiness</h3>
+                        <p class="metric-meta">Reserve your GPS beacon, route plan, and rendezvous points for remote alpine terrain.</p>
+                    </div>
+                </div>
+                <div class="accordion" id="hazards"></div>
+                <div class="checklist-card card">
+                    <div class="checklist-header">
+                        <h3>Gear checklist</h3>
+                        <span id="checklist-summary" class="metric-meta">0 of 0 items packed</span>
+                    </div>
+                    <ul id="gear-checklist"></ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script type="module" src="scripts.js"></script>
+</body>
+</html>
