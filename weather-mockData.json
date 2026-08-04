@@ -1,0 +1,45 @@
+
+[
+  {
+    "name": "Karura Loop",
+    "city": "Nairobi",
+    "region": "Nairobi",
+    "distanceKm": 14,
+    "durationHours": 4,
+    "difficulty": "Easy",
+    "terrain": "Forest paths",
+    "weatherProfile": "weatherProfiles.Nairobi",
+    "features": ["city access", "waterfalls", "forest cover"]
+  },
+{    "name": "Hell’s Gate Canyon",
+    "city": "Nairobi",
+    "region": "Naivasha",
+    "distanceKm": 10,
+    "durationHours": 3,
+    "difficulty": "Moderate",
+    "terrain": "Volcanic gorge",
+    "weatherProfile": "weatherProfiles.Nairobi",
+    "features": ["climbing", "wildlife", "gorges"]
+  },
+{    "name": "Mt Longonot Summit",
+    "city": "Nakuru",
+    "region": "Nakuru",
+    "distanceKm": 21,
+    "durationHours": 6,
+    "difficulty": "Hard",
+    "terrain": "Crater rim",
+    "weatherProfile": "weatherProfiles.Nakuru",
+    "features": ["volcano", "lake views", "ridges"]
+  },
+{    "name": "Mackinder’s Valley",
+    "city": "Mt Kenya",
+    "region": "Mt Kenya",
+    "distanceKm": 18,
+    "durationHours": 8,
+    "difficulty": "Expedition",
+    "terrain": "Alpine valley",
+    "weatherProfile": "weatherProfiles.MtKenya",
+    "features": ["high altitude", "glacial views", "multi-day"]
+  }
+]
+
