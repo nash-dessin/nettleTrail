@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motion — Wind & Rain</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="app-shell">
+        <header class="hero">
+            <div>
+                <h1>Motion</h1>
+                <p>Plan alpine hikes with trail weather, safety checks, wind & rain analytics, and active alerts.</p>
+            </div>
+            <div class="selector-panel">
+                <label for="city-select">Select a region</label>
+                <select id="city-select"></select>
+            </div>
+        </header>
+
+        <nav class="tabs" aria-label="Main navigation">
+            <ul class="tab-list">
+                <li><a class="tab" href="index.html">Overview</a></li>
+                <li><a class="tab" href="trailMap.html">Trail Map</a></li>
+                <li><a class="tab" href="elevationForecast.html">Elevation Forecast</a></li>
+                <li><a class="tab active" aria-current="page" href="windRain.html">Wind & Rain</a></li>
+                <li><a class="tab" href="safety.html">Safety</a></li>
+                <li><a class="tab" href="alerts.html">Alerts</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="wind-rain" class="page-section">
+                <div class="weather-panels">
+                    <section id="wind-panel" class="card weather-card">
+                        <h2>Wind speed data</h2>
+                        <div class="panel-grid">
+                            <div class="panel-block">
+                                <p class="metric-meta">Average speed</p>
+                                <div class="metric-card"><strong>00 km/h</strong><p>Current gusts</p></div>
+                            </div>
+                            <div class="panel-block">
+                                <p class="metric-meta">Wind advice</p>
+                                <div class="metric-card"><strong>High/Low/ Moderate breeze</strong><p>Keep pack secure/light</p></div>
+                            </div>
+                        </div>
+                        <div class="card chart-card">
+                            <h3>24h gust forecast</h3>
+                            <div id="wind-hours" class="chart-container"></div>
+                        </div>
+                    </section>
+                    <section id="rain-panel" class="card weather-card">
+                        <h2>Rain information</h2>
+                        <div class="panel-grid">
+                            <div class="panel-block">
+                                <p class="metric-meta">Rain intensity</p>
+                                <div class="metric-card"><strong>00 mm/h</strong><p>Light showers/Heavy Storms</p></div>
+                            </div>
+                            <div class="panel-block">
+                                <p class="metric-meta">24h total</p>
+                                <div class="metric-card"><strong>00 mm</strong><p>Expected/ No accumulation</p></div>
+                            </div>
+                        </div>
+                        <div class="card chart-card">
+                            <h3>Precipitation trend</h3>
+                            <div id="rain-hours" class="chart-container"></div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script type="module" src="scripts.js"></script>
+</body>
+</html>
