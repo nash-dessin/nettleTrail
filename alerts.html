@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motion — Alerts</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="app-shell">
+        <header class="hero">
+            <div>
+                <h1>Motion</h1>
+                <p>Plan alpine hikes with trail weather, safety checks, wind & rain analytics, and active alerts.</p>
+            </div>
+            <div class="selector-panel">
+                <label for="city-select">Select a region</label>
+                <select id="city-select"></select>
+            </div>
+        </header>
+
+        <nav class="tabs" aria-label="Main navigation">
+            <ul class="tab-list">
+                <li><a class="tab" href="index.html">Overview</a></li>
+                <li><a class="tab" href="trailMap.html">Trail Map</a></li>
+                <li><a class="tab" href="elevationForecast.html">Elevation Forecast</a></li>
+                <li><a class="tab" href="windRain.html">Wind & Rain</a></li>
+                <li><a class="tab" href="safety.html">Safety</a></li>
+                <li><a class="tab active" aria-current="page" href="alerts.html">Alerts</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="alerts" class="page-section">
+                <div class="card alert-header">
+                    <div>
+                        <h2>Active Alerts</h2>
+                        <p>Dismiss updates, filter by severity, and manage notification preferences.</p>
+                    </div>
+                    <div class="preference-panel" id="alert-preferences">
+                        <label class="preference-toggle"><input type="checkbox" id="pref-push" checked /><span>Push alerts</span></label>
+                        <label class="preference-toggle"><input type="checkbox" id="pref-email" checked /><span>Email updates</span></label>
+                    </div>
+                </div>
+                <div class="card alert-filters alert-controls">
+                    <label><input type="checkbox" id="filter-severe" checked data-severity="severe"> Severe</label>
+                    <label><input type="checkbox" id="filter-warning" checked data-severity="warning"> Warning</label>
+                    <label><input type="checkbox" id="filter-caution" checked data-severity="caution"> Caution</label>
+                    <label><input type="checkbox" id="filter-info" checked data-severity="info"> Info</label>
+                </div>
+                <div id="alerts-list" class="alerts-list"></div>
+                <h3>Alert history</h3>
+                <ol id="alert-history" class="metric-meta"></ol>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="scripts.js"></script>
+</body>
+</html>
