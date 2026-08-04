@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motion — Trail Map</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="app-shell">
+        <header class="hero">
+            <div>
+                <h1>Motion</h1>
+                <p>Plan alpine hikes with trail weather, safety checks, wind & rain analytics, and active alerts.</p>
+            </div>
+            <div class="selector-panel">
+                <label for="city-select">Select a region</label>
+                <select id="city-select"></select>
+            </div>
+        </header>
+
+        <nav class="tabs" aria-label="Main navigation">
+            <a class="tab" href="index.html">Overview</a>
+            <a class="tab active" href="trailMap.html">Trail Map</a>
+            <a class="tab" href="elevationForecast.html">Elevation Forecast</a>
+            <a class="tab" href="windRain.html">Wind & Rain</a>
+            <a class="tab" href="safety.html">Safety</a>
+            <a class="tab" href="alerts.html">Alerts</a>
+        </nav>
+
+        <main>
+            <section id="trail-map" class="page-section">
+                <div class="map-controls">
+                    <div class="layer-switcher">
+                        <button data-layer="topography" class="layer active">Topo</button>
+                        <button data-layer="satellite" class="layer">Satellite</button>
+                        <button data-layer="wind" class="layer">Wind</button>
+                        <button data-layer="rain" class="layer">Rain</button>
+                    </div>
+                    <span class="offline-badge">Offline-ready</span>
+                </div>
+                <div class="map-grid">
+                    <div id="map" class="map-view">
+                        <div class="map-image"></div>
+                        <div class="trail-overlay" id="trail-overlay"></div>
+                    </div>
+                    <aside class="card trail-summary" id="waypoint-panel">
+                        <h2>Waypoint overview</h2>
+                        <p>Select a trail waypoint to review live conditions.</p>
+                    </aside>
+                </div>
+                <div id="trail-stats" class="card trail-stats"></div>
+            </section>
+        </main>
+    </div>
+    <script type="module" src="scripts.js"></script>
+</body>
+</html>
