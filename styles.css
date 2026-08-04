@@ -1,0 +1,161 @@
+:root {
+  --bg: #0f1720;
+  --card: #0b1220;
+  --muted: #94a3b8;
+  --primaryBlue: #06b6d4;
+  --water: #38bdf8;
+  --cautionYellow: #f59e0b;
+  --dangerRed: #ef4444;
+  --snow: #86d6ff;
+  --glass: rgba(255,255,255,0.05);
+  --accent: linear-gradient(135deg,var(--primaryBlue),var(--water));
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap');
+
+* { box-sizing: border-box; }
+
+
+html,body { height:100%; margin:0; background:var(--bg); color:#e6eef8; font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; }
+
+button, input, select { font: inherit; }
+
+.app-shell { max-width:1200px; margin:0 auto; padding:20px; }
+
+.hero { display:flex; justify-content:space-between; gap:20px; align-items:center; padding:20px; border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); margin-bottom:20px; }
+.hero h1 { margin:0; font-family: 'Roboto Slab', serif; font-size: clamp(1.8rem, 2.4vw, 3rem); letter-spacing: -0.03em; }
+.hero p { margin:0; color:var(--muted); font-size:1rem; max-width:520px; }
+
+.selector-panel { min-width:220px; }
+.selector-panel label { display:block; color:var(--muted); margin-bottom:10px; font-weight:600; }
+.selector-panel select { width:100%; padding:12px 14px; border-radius:12px; background:rgba(255,255,255,0.05); color:inherit; border:1px solid rgba(255,255,255,0.05); }
+
+.tabs { display:flex; gap:8px; margin-bottom:18px; }
+.tab-list { display:flex; gap:8px; padding:0; margin:0; list-style:none; }
+.tab-list li { display:inline-flex; }
+.tab { background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.03); padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600; text-decoration:none; }
+.tab.active { background:transparent; color:var(--primaryBlue); border-color:rgba(6,182,212,0.25); box-shadow:none; }
+
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+
+.hero-banner { position:relative; border-radius:18px; overflow:hidden; margin-bottom:24px; }
+.hero-banner img { width:100%; height:340px; object-fit:cover; filter:brightness(0.58) contrast(1.06); display:block; }
+.hero-overlay { position:absolute; inset:0; display:flex; justify-content:space-between; align-items:stretch; padding:24px; background:linear-gradient(180deg, rgba(15,23,32,0.08), rgba(15,23,32,0.9)); gap:20px; }
+.overview-stats { width:58%; display:flex; flex-direction:column; gap:18px; }
+.overview-controls { width:40%; display:flex; flex-direction:column; gap:16px; }
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+}
+
+.hourly-card h2,
+.risk-card h2 { margin-bottom:12px; }
+.forecast-description { margin:0 0 12px; color:#cbd5e1; }
+.forecast-temp { margin:0; font-size:2.8rem; letter-spacing:-0.03em; line-height:1; }
+.forecast-sup { font-size:0.72rem; text-transform:uppercase; color:#bfdbfe; vertical-align:super; }
+.forecast-sub { margin:10px 0 0; display:block; font-size:0.88rem; color:var(--muted); }
+
+.risk-card { display:flex; flex-direction:column; gap:12px; }
+.risk-badge { display:inline-flex; align-items:center; padding:8px 14px; border-radius:999px; border:1px solid currentColor; font-weight:700; }
+.risk-badge.low { color:#4ade80; border-color:#4ade80; }
+.risk-badge.moderate { color:var(--cautionYellow); border-color:var(--cautionYellow); }
+.risk-badge.high { color:var(--dangerRed); border-color:var(--dangerRed); }
+.risk-copy { margin:0; color:#dbeafe; font-weight:600; }
+
+.overview-metrics { margin-top:24px; }
+.metrics-grid { grid-template-columns: repeat(4, minmax(140px, 1fr)); }
+
+.weekly-forecast { margin-top:28px; }
+.forecast-card-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:16px; }
+.forecast-day-card { display:flex; flex-direction:column; align-items:flex-start; gap:10px; padding:18px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:16px; }
+.forecast-day-card span { display:block; }
+.forecast-emoji { font-size:1.7rem; }
+
+
+.grid { display:grid; gap:16px; }
+.dashboard-grid { grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); }
+
+.card, .checklist-card, .trail-card, .metric-card { background: rgba(11,18,32,0.72); border-radius:16px; padding:18px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.04); }
+.card h2, .trail-card h2 { margin:0 0 12px; font-family: 'Roboto Slab', serif; }
+
+.badge { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:var(--glass); color:var(--water); font-weight:700; }
+.offline-badge { background: rgba(255,255,255,0.03); padding:6px 10px; border-radius:10px; color:var(--muted); font-weight:600; }
+
+.map-controls { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:16px; }
+.map-grid { display:grid; grid-template-columns: 1.6fr 0.9fr; gap:18px; margin-bottom:18px; }
+.map-view { position:relative; min-height:420px; border-radius:20px; overflow:hidden; background:linear-gradient(135deg, rgba(6,182,212,0.16), rgba(15,23,32,0.96)); border:1px solid rgba(255,255,255,0.05); }
+.map-canvas { position:absolute; inset:0; }
+.trail-overlay { position:absolute; inset:0; pointer-events:none; }
+.waypoint { position:absolute; width:18px; height:18px; border-radius:50%; background:var(--primaryBlue); border:2px solid #fff; cursor:pointer; box-shadow:0 0 0 4px rgba(6,182,212,0.14); pointer-events:auto; }
+.waypoint.active { background:var(--water); box-shadow:0 0 0 4px rgba(56,189,248,0.22); }
+
+.layer-switcher { display:flex; gap:8px; margin-bottom:10px; }
+.layer { background:transparent; border:1px solid rgba(255,255,255,0.03); color:var(--muted); padding:6px 8px; border-radius:8px; cursor:pointer; }
+.layer.active { background:rgba(255,255,255,0.02); color:var(--primaryBlue); }
+
+.trail-summary h2, .safety-notes h3, .alert-header h2, .checklist-header h3 { margin-top:0; }
+.trail-stats { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:16px; margin-top:0; }
+.trail-stat { display:flex; flex-direction:column; gap:6px; }
+.trail-stat strong { font-size:1.2rem; }
+
+.elevation-card { display:flex; flex-direction:column; gap:18px; }
+.elevation-header { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; }
+.metric-detail { text-align:right; }
+.metric-detail .metric { margin-bottom:0; }
+.band-row { display:grid; grid-template-columns: 1fr 2fr 1fr; gap:12px; align-items:center; padding:14px; background:rgba(255,255,255,0.03); border-radius:14px; }
+.band-label { font-weight:700; color:#fff; }
+.band-bar { position:relative; height:14px; background:rgba(255,255,255,0.08); border-radius:999px; overflow:hidden; }
+.band-bar-inner { height:100%; border-radius:999px; background:linear-gradient(135deg, rgba(6,182,212,0.85), rgba(56,189,248,0.5)); }
+.band-stats { text-align:right; font-size:0.9rem; color:var(--muted); }
+
+.toggle-group { display:flex; gap:10px; margin-bottom:18px; }
+.toggle { flex:1; background:rgba(255,255,255,0.03); color:var(--muted); border:1px solid rgba(255,255,255,0.05); padding:12px 16px; border-radius:14px; cursor:pointer; font-weight:700; }
+.toggle.active { background:var(--accent); color:#06121a; }
+.weather-panels { display:grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap:18px; margin-bottom:18px; }
+.weather-card { display:flex; flex-direction:column; gap:18px; }
+.weather-card h2, .weather-card h3 { margin:0; }
+.weather-card .metric-card { padding:18px; background:rgba(255,255,255,0.03); border-radius:14px; }
+.panel-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap:18px; }
+.panel-block { display:flex; flex-direction:column; gap:12px; }
+
+.metric-card { min-height:120px; display:flex; flex-direction:column; justify-content:center; gap:12px; }
+.metric-card strong { font-size:1.6rem; }
+.metric-card p { margin:0; }
+
+.safety-grid { display:grid; grid-template-columns: 1fr 1fr; gap:18px; margin-bottom:18px; }
+.safety-notes { padding:18px; }
+.accordion { display:grid; gap:10px; margin-bottom:18px; }
+.accordion-item { border:1px solid rgba(255,255,255,0.05); border-radius:14px; overflow:hidden; }
+.accordion-toggle { width:100%; display:flex; justify-content:space-between; align-items:center; padding:14px; background:rgba(255,255,255,0.03); border:none; color:#e6eef8; font-weight:700; }
+.accordion-toggle::after { content:'+'; font-size:1.1rem; }
+.accordion-toggle.active::after { content:'–'; }
+.accordion-panel { padding:14px; background:rgba(255,255,255,0.02); display:none; }
+.accordion-panel.active { display:block; }
+
+.checklist-header { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:14px; }
+.checklist-card ul { list-style:none; padding:0; margin:0; }
+.checklist-card li { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+.checklist-card label { display:flex; align-items:center; gap:10px; width:100%; color:#e6eef8; }
+.checklist-card input[type='checkbox'] { width:16px; height:16px; accent-color:var(--primaryBlue); }
+
+.alert-header { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; margin-bottom:18px; }
+.alert-filters { display:flex; gap:18px; flex-wrap:wrap; align-items:center; margin-bottom:18px; }
+.alert-controls label { display:flex; align-items:center; gap:8px; color:var(--muted); font-weight:600; }
+
+.preference-panel { display:flex; gap:14px; flex-wrap:wrap; }
+.preference-toggle { display:flex; align-items:center; gap:10px; color:var(--muted); font-weight:600; }
+.preference-toggle input { width:16px; height:16px; accent-color:var(--primaryBlue); }
+
+.alerts-list { display:grid; gap:12px; }
+.alert-card strong { display:block; margin-bottom:6px; font-size:1rem; }
+.alert-card p { margin:0; color:var(--muted); }
+.alert-card .dismiss { font-size:1rem; }
+
+@media (max-width: 720px) {
+  .hero { flex-direction:column; align-items:flex-start; }
+  .tabs { justify-content:center; }
+  .hero-banner img { height:220px; }
+}
