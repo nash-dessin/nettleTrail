@@ -1,6 +1,6 @@
-# Motion Dashboard
+# Jipangea Dashboard
 
-Motion is a static hiking planner focused on trails and nearby weather for route planning.
+Jipangea is a static hiking planner focused on trails and nearby weather for route planning.
 
 What this workspace contains
 
