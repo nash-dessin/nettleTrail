@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jipangea — Trip Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="app-shell">
+        <header class="hero">
+            <div>
+                <h1>Jipangea</h1>
+                <p>Plan alpine hikes with trail weather, safety checks, wind & rain analytics, and active alerts.</p>
+            </div>
+            <div class="selector-panel">
+                <label for="city-select">Select a region</label>
+                <select id="city-select"></select>
+            </div>
+        </header>
+
+        <nav class="tabs" aria-label="Main navigation">
+            <ul class="tab-list">
+                <li><a class="tab" href="index.html">Overview</a></li>
+                <li><a class="tab active" aria-current="page" href="tripPlan.html">Trip Planner</a></li>
+                <li><a class="tab" href="trailMap.html">Trail Map</a></li>
+                <li><a class="tab" href="elevationForecast.html">Elevation Forecast</a></li>
+                <li><a class="tab" href="windRain.html">Wind & Rain</a></li>
+                <li><a class="tab" href="safety.html">Safety</a></li>
+                <li><a class="tab" href="alerts.html">Alerts</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="trip-planner-page" class="page-section">
+                <div class="planner-grid">
+                    <section class="card planner-card">
+                        <h2>Plan a Hike</h2>
+                        <form id="trip-form" class="planner-form">
+                            <label>
+                                Region
+                                <select id="trail-select"></select>
+                            </label>
+                            <label>
+                                Date
+                                <input type="date" id="trip-date" />
+                            </label>
+                            <label>
+                                Group Size
+                                <select id="group-size">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected>4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </label>
+                            <label>
+                                Experience
+                                <select id="experience">
+                                    <option>Beginner</option>
+                                    <option selected>Intermediate</option>
+                                    <option>Advanced</option>
+                                </select>
+                            </label>
+                            <label>
+                                Duration
+                                <select id="duration">
+                                    <option>Half Day</option>
+                                    <option selected>Full Day</option>
+                                    <option>Multi-Day</option>
+                                </select>
+                            </label>
+
+                            <button type="submit" class="primary-button">Generate plan</button>
+                        </form>
+                    </section>
+
+                    <section class="card planner-summary-card">
+                        <div class="summary-header">
+                            <h2>Trip readiness</h2>
+                            <p>Use weather data and trail difficulty to create a safer hike.</p>
+                        </div>
+                        <div id="trip-results" class="trip-results">
+                            <div class="metric-card small-card">
+                                <strong id="readiness-score">84%</strong>
+                                <p>Trail Readiness</p>
+                            </div>
+                            <div class="metric-card small-card">
+                                <strong id="recommended-start">6:30 AM</strong>
+                                <p>Recommended Start</p>
+                            </div>
+                            <div class="metric-card small-card">
+                                <strong id="estimated-finish">11:45 AM</strong>
+                                <p>Estimated Finish</p>
+                            </div>
+                        </div>
+                        <div id="planner-alerts" class="planner-alerts"></div>
+                        <div id="beginner-trails" class="metric-meta"></div>
+                        <button id="save-trip" class="primary-button">Save Trip</button>
+                    </section>
+                </div>
+
+                <section class="card saved-trips-card">
+                    <h2>Saved trips</h2>
+                    <div id="saved-trips" class="saved-trips"></div>
+                </section>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="scripts.js"></script>
+</body>
+</html>
