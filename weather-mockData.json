@@ -13,7 +13,7 @@
     "weatherProfile": "weatherProfiles.Nairobi",
     "averageWindSpeed" : "10 km/h",
     "windAdv" : "Wind can be strong in open areas, so be prepared for gusts.",
-    "rainIntenisty" : "Low",
+    "rainIntensity" : "Low",
     "rainAccumulation" : "Minimal",
     "features": ["city access", "waterfalls", "forest cover"]
   },
@@ -29,7 +29,7 @@
     "weatherProfile": "weatherProfiles.Nairobi",
     "averageWindSpeed" : "15 km/h",
     "windAdv" : "Wind can be strong in open areas, so be prepared for gusts.",
-    "rainIntenisty" : "Moderate", 
+    "rainIntensity" : "Moderate", 
     "rainAccumulation" : "Moderate",
     "features": ["climbing", "wildlife", "gorges"]
   },
@@ -45,7 +45,7 @@
     "weatherProfile": "weatherProfiles.Nakuru",
     "averageWindSpeed" : "20 km/h",
     "windAdv" : "Wind can be strong in open areas, so be prepared for gusts.",
-    "rainIntenisty" : "High",
+    "rainIntensity" : "High",
     "rainAccumulation" : "Significant",
     "features": ["volcano", "lake views", "ridges"]
   },
@@ -61,7 +61,7 @@
     "weatherProfile": "weatherProfiles.MtKenya",
     "averageWindSpeed" : "25 km/h",
     "windAdv" : "Wind can be strong in open areas, so be prepared for gusts.",
-    "rainIntenisty" : "High",
+    "rainIntensity" : "High",
     "rainAccumulation" : "Significant",
     "features": ["high altitude", "glacial views", "multi-day"]
   }
