@@ -39,9 +39,9 @@
                         <div class="overview-stats">
                             <div class="card hourly-card">
                                 <h2>Hourly forecast</h2>
-                                <p class="forecast-description">Brief summary of the current hourly conditions for the selected trail.</p>
-                                <p class="forecast-temp">18°C <sup class="forecast-sup">ACTIVE  TRA IL</sup></p>
-                                <p class="forecast-sub">1,820 m · Feels like 16°C · Wind 12 km/h</p>
+                                <p class="forecast-description">Partly Cloudy.</p>
+                                <p class="forecast-temp"><span id="forecast-temp">18°C</span> <sup class="forecast-sup">ACTIVE TRAIL</sup></p>
+                                <p class="forecast-sub" id="forecast-sub">1,820 m · Feels like 16°C · Wind 12 km/h</p>
                                 <div id="hourly-chart" class="chart-container"></div>
                             </div>
                             <div id="current-conditions" class="grid dashboard-grid"></div>
@@ -49,9 +49,9 @@
                         <div class="overview-controls">
                             <div class="card risk-card">
                                 <h2>Risk overview</h2>
-                                <span class="risk-badge moderate">Moderate risk</span>
-                                <p class="risk-copy">Rain conditions · 1–3 PM</p>
-                                <p class="metric-meta">If there is a Moderate risk in the selected region, display fetched alert details and the timing window here.</p>
+                                <span id="risk-badge" class="risk-badge moderate">Moderate risk</span>
+                                <p id="risk-copy" class="risk-copy">Rain conditions · 1–3 PM</p>
+                                <p class="metric-meta"></p>
                             </div>
                         </div>
                     </div>
@@ -59,19 +59,19 @@
 
                 <div class="overview-metrics grid metrics-grid">
                     <div class="metric-card">
-                        <strong>18°C</strong>
+                        <strong id="metric-temp">18°C</strong>
                         <p>Temperature</p>
                     </div>
                     <div class="metric-card">
-                        <strong>12 km/h</strong>
+                        <strong id="metric-wind">12 km/h</strong>
                         <p>Wind speed</p>
                     </div>
                     <div class="metric-card">
-                        <strong>2.4 mm</strong>
+                        <strong id="metric-precip">2.4 mm</strong>
                         <p>Precipitation</p>
                     </div>
                     <div class="metric-card">
-                        <strong>10 km</strong>
+                        <strong id="metric-visibility">10 km</strong>
                         <p>Visibility</p>
                     </div>
                 </div>
