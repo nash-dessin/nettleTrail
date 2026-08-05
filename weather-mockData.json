@@ -11,6 +11,10 @@
     "difficulty": "Easy",
     "terrain": "Forest paths",
     "weatherProfile": "weatherProfiles.Nairobi",
+    "averageWindSpeed" : "10 km/h",
+    "windAdv" : "Wind can be strong in open areas, so be prepared for gusts.",
+    "rainIntenisty" : "Low",
+    "rainAccumulation" : "Minimal",
     "features": ["city access", "waterfalls", "forest cover"]
   },
 {    "name": "Hell’s Gate Canyon",
@@ -23,6 +27,10 @@
     "difficulty": "Moderate",
     "terrain": "Volcanic gorge",
     "weatherProfile": "weatherProfiles.Nairobi",
+    "averageWindSpeed" : "15 km/h",
+    "windAdv" : "Wind can be strong in open areas, so be prepared for gusts.",
+    "rainIntenisty" : "Moderate", 
+    "rainAccumulation" : "Moderate",
     "features": ["climbing", "wildlife", "gorges"]
   },
 {    "name": "Mt Longonot Summit",
@@ -35,6 +43,10 @@
     "difficulty": "Hard",
     "terrain": "Crater rim",
     "weatherProfile": "weatherProfiles.Nakuru",
+    "averageWindSpeed" : "20 km/h",
+    "windAdv" : "Wind can be strong in open areas, so be prepared for gusts.",
+    "rainIntenisty" : "High",
+    "rainAccumulation" : "Significant",
     "features": ["volcano", "lake views", "ridges"]
   },
 {    "name": "Mackinder’s Valley",
@@ -47,6 +59,10 @@
     "difficulty": "Expedition",
     "terrain": "Alpine valley",
     "weatherProfile": "weatherProfiles.MtKenya",
+    "averageWindSpeed" : "25 km/h",
+    "windAdv" : "Wind can be strong in open areas, so be prepared for gusts.",
+    "rainIntenisty" : "High",
+    "rainAccumulation" : "Significant",
     "features": ["high altitude", "glacial views", "multi-day"]
   }
 ]
