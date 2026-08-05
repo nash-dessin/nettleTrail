@@ -78,6 +78,16 @@ button, input, select { font: inherit; }
 .grid { display:grid; gap:16px; }
 .dashboard-grid { grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); }
 
+.planner-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-bottom:20px; }
+.planner-card label, .planner-card p, .planner-summary-card p { display:block; margin-bottom:12px; color:var(--muted); }
+.planner-card select, .planner-card input { width:100%; padding:12px 14px; border-radius:14px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.05); color:inherit; }
+.planner-alerts { display:grid; gap:10px; margin-top:16px; }
+.planner-alert { padding:14px; border-radius:14px; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.25); color:#e0f2fe; }
+.primary-button { width:100%; padding:14px 18px; background:var(--primaryBlue); border:none; border-radius:14px; color:#06121a; font-weight:700; cursor:pointer; margin-top:16px; }
+.saved-trips-card { margin-top:20px; }
+.saved-trips { display:grid; gap:12px; }
+.small-card { min-height:100px; }
+.metric-meta { color:var(--muted); font-size:0.95rem; }
 .card, .checklist-card, .trail-card, .metric-card { background: rgba(11,18,32,0.72); border-radius:16px; padding:18px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.04); }
 .card h2, .trail-card h2 { margin:0 0 12px; font-family: 'Roboto Slab', serif; }
 
