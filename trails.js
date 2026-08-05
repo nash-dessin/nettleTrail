@@ -1,16 +1,27 @@
 // Trail holds all the details for a single hiking route.
 export class Trail {
-    constructor({ name, city, region, latitude, longitude, distanceKm, durationHours, difficulty, terrain, features }) {
-        this.name = name;
-        this.city = city;
-        this.region = region;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.distanceKm = distanceKm;
-        this.durationHours = durationHours;
-        this.difficulty = difficulty;
-        this.terrain = terrain;
-        this.features = features;
+    constructor(data = {}) {
+        this.name = data.name;
+        this.city = data.city;
+        this.region = data.region;
+        this.latitude = data.latitude;
+        this.longitude = data.longitude;
+        this.distanceKm = data.distanceKm;
+        this.durationHours = data.durationHours;
+        this.difficulty = data.difficulty;
+        this.terrain = data.terrain;
+        this.features = data.features || [];
+        // Preserve additional mock-data fields used by the UI
+        this.averageWindSpeed = data.averageWindSpeed;
+        this.windAdv = data.windAdv;
+        this.rainIntensity = data.rainIntensity;
+        this.rainAccumulation = data.rainAccumulation;
+        this.visibility = data.visibility;
+        this.forecastDesc = data.forecastDesc;
+        this.forecastTemp = data.forecastTemp;
+        this.forecastSub = data.forecastSub;
+        this.hourlyForecast = data.hourlyForecast;
+        this.riskOverview = data.riskOverview;
     }
 
     // Give a ride-or-not score based on basic weather conditions.

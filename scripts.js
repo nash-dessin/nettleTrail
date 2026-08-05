@@ -16,6 +16,8 @@ import {
 
 const weatherService = new WeatherService();
 const tripManager = new TripManager();
+let map = null;
+let mapMarker = null;
 
 // Keeping the current app state in one place.
 const region = {
@@ -46,7 +48,7 @@ window.initMap = function() {
   const mapElement = document.getElementById('google-map');
   if (!mapElement) return;
 
-  const map = new google.maps.Map(mapElement, {
+  map = new google.maps.Map(mapElement, {
     center: { lat: 46.8523, lng: -121.7603 },
     zoom: 10,
     disableDefaultUI: true,
@@ -59,11 +61,13 @@ window.initMap = function() {
     ]
   });
 
-  new google.maps.Marker({
+  mapMarker = new google.maps.Marker({
     position: { lat: 46.8523, lng: -121.7603 },
     map,
     title: 'Selected trail region'
   });
+
+  updateMapMarkerPosition();
 };
 
 
@@ -90,7 +94,20 @@ function setupTrailSelect() {
     const select = document.querySelector('#trail-select');
     const city = region.selectedCity || getCities(region.trails)[0];
     const trails = getTrailsForCity(region.trails, city);
-    if (!select || !trails.length) return;
+    // Ensure we pick a default trail for the chosen city even if the
+    // page doesn't include a trail `<select>` (some pages only show the hero).
+    if (trails.length) {
+        if (!region.selectedTrailName || !trails.some((trail) => trail.name === region.selectedTrailName)) {
+            region.selectedTrailName = trails[0].name;
+        }
+    }
+
+    if (!trails.length) return;
+
+    if (!select) {
+        // No trail selector on this page, we've already set selectedTrailName above.
+        return;
+    }
 
     select.innerHTML = trails
         .map((trail) => `<option value="${trail.name}">${trail.name}</option>`)
@@ -102,10 +119,103 @@ function setupTrailSelect() {
     select.value = region.selectedTrailName;
     select.addEventListener('change', (event) => {
         region.selectedTrailName = event.target.value;
-        renderTripPlanner();
+        renderPage();
     });
 }
 
+// Attach listeners to alert filter checkboxes (if present).
+function bindAlertFilters() {
+    const checkboxes = document.querySelectorAll('#filter-severe, #filter-warning, #filter-caution, #filter-info');
+    if (!checkboxes.length) return;
+
+    checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', (event) => {
+            const key = event.target.dataset.severity || (event.target.id || '').replace('filter-', '');
+            region.filters[key] = event.target.checked;
+            renderAlerts();
+        });
+    });
+}
+
+function getMockWeatherData(trail) {
+    const tempByDifficulty = {
+        Easy: { temperature: 18, feelsLike: 17, precipitation: '2.4 mm', visibility: '10 km' },
+        Moderate: { temperature: 16, feelsLike: 15, precipitation: '4.0 mm', visibility: '8 km' },
+        Hard: { temperature: 12, feelsLike: 10, precipitation: '7.3 mm', visibility: '5 km' },
+        Expedition: { temperature: 8, feelsLike: 6, precipitation: '10.8 mm', visibility: '3 km' },
+    };
+    const base = tempByDifficulty[trail.difficulty] || tempByDifficulty.Moderate;
+    // include risk information from the trail mock data when available
+    const riskLevel = trail && trail.riskOverview && trail.riskOverview.riskLevel ? trail.riskOverview.riskLevel.toLowerCase() : 'unknown';
+    const riskText = trail && trail.riskOverview && trail.riskOverview.riskDetails ? trail.riskOverview.riskDetails : '';
+    return Object.assign({}, base, { riskLevel, riskText });
+}
+
+function updateWeatherPlaceholders() {
+    const trail = getSelectedTrail(region.trails, region.selectedTrailName);
+    if (!trail) return;
+
+    const weather = getMockWeatherData(trail);
+    const windSpeed = trail.averageWindSpeed || '12 km/h';
+    const rainIntensity = trail.rainIntensity || 'Low';
+    const rainTotal = trail.rainAccumulation || '0 mm';
+    const windAdviceText = trail.windAdv || 'Pack for changing wind conditions.';
+
+    const forecastTemp = document.getElementById('forecast-temp');
+    const forecastSub = document.getElementById('forecast-sub');
+    const metricTemp = document.getElementById('metric-temp');
+    const metricWind = document.getElementById('metric-wind');
+    const metricPrecip = document.getElementById('metric-precip');
+    const metricVisibility = document.getElementById('metric-visibility');
+    const windMetricSpeed = document.getElementById('wind-metric-speed');
+    const windAdvice = document.getElementById('wind-advice');
+    const rainIntensityEl = document.getElementById('rain-intensity');
+    const rainTotalEl = document.getElementById('rain-total');
+
+    if (forecastTemp) forecastTemp.textContent = `${weather.temperature}°C`;
+    if (forecastSub) forecastSub.textContent = `Feels like ${weather.feelsLike}°C · Wind ${windSpeed}`;
+    if (metricTemp) metricTemp.textContent = `${weather.temperature}°C`;
+    if (metricWind) metricWind.textContent = windSpeed;
+    if (metricPrecip) metricPrecip.textContent = weather.precipitation;
+    if (metricVisibility) metricVisibility.textContent = weather.visibility;
+
+    if (windMetricSpeed) windMetricSpeed.textContent = windSpeed;
+    if (windAdvice) windAdvice.textContent = windAdviceText;
+    if (rainIntensityEl) rainIntensityEl.textContent = rainIntensity;
+    if (rainTotalEl) rainTotalEl.textContent = rainTotal;
+    // Update risk badge for this trail
+    updateRiskBadge(trail.riskOverview || { riskLevel: (weather && weather.riskLevel) || 'unknown', riskText: (weather && weather.riskText) || '' });
+}
+
+// Update the risk badge text and class based on the trail's risk level.
+function updateRiskBadge(trailData) {
+    const badge = document.getElementById('risk-badge');
+    const copy = document.getElementById('risk-copy');
+    if (!badge) return;
+
+    // Accept either {riskLevel, riskText} or the mock's {riskLevel, riskDetails}
+    const rawLevel = trailData && (trailData.riskLevel || trailData.riskLevel) ? String(trailData.riskLevel) : '';
+    const level = rawLevel ? rawLevel.toLowerCase() : 'unknown';
+    const text = (trailData && (trailData.riskText || trailData.riskDetails)) || 'No significant risk';
+
+    badge.textContent = (level === 'unknown') ? 'No data' : (level.charAt(0).toUpperCase() + level.slice(1) + ' risk');
+    // normalize classes to lower-case risk levels used by CSS
+    badge.className = 'risk-badge ' + (level === 'unknown' ? 'none' : level);
+    if (copy) copy.textContent = text;
+}
+
+function updateMapMarkerPosition() {
+    if (!map || !mapMarker) return;
+
+    const trail = getSelectedTrail(region.trails, region.selectedTrailName);
+    if (!trail) return;
+
+    const position = { lat: trail.latitude, lng: trail.longitude };
+    map.setCenter(position);
+    mapMarker.setPosition(position);
+    mapMarker.setTitle(`Selected trail region: ${trail.name}`);
+    map.setZoom(10);
+}
 
 // Ask the weather service for daily weather data.
 async function fetchWeatherDaily(latitude, longitude, dailyParams) {
@@ -375,6 +485,8 @@ async function renderPage() {
     ]);
     renderAlerts();
     renderTripPlanner();
+    updateWeatherPlaceholders();
+    updateMapMarkerPosition();
 }
 
 // Attach the trip planner form listener.
@@ -382,6 +494,117 @@ function initializeTripPlannerForm() {
     const form = document.querySelector('#trip-form');
     if (!form) return;
     form.addEventListener('submit', handleTripFormSubmit);
+}
+
+const CHECKLIST_STORAGE_KEY = 'jipangea-gear-checklist';
+const gearChecklistItems = [];
+
+function initializeChecklist() {
+    const addButton = document.getElementById('add-checklist-item-btn');
+    const itemInput = document.getElementById('new-checklist-item');
+    if (!addButton || !itemInput) return;
+
+    loadChecklistItems();
+
+    addButton.addEventListener('click', () => {
+        addChecklistItem(itemInput.value);
+        itemInput.focus();
+    });
+
+    itemInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            addChecklistItem(itemInput.value);
+        }
+    });
+
+    renderGearChecklist();
+}
+
+function loadChecklistItems() {
+    try {
+        const raw = localStorage.getItem(CHECKLIST_STORAGE_KEY);
+        if (!raw) return;
+
+        const saved = JSON.parse(raw);
+        if (!Array.isArray(saved)) return;
+
+        gearChecklistItems.length = 0;
+        saved.forEach((item) => {
+            if (item && typeof item.label === 'string') {
+                gearChecklistItems.push({
+                    label: item.label,
+                    packed: Boolean(item.packed),
+                });
+            }
+        });
+    } catch {
+        // ignore invalid storage data
+    }
+}
+
+function saveChecklistItems() {
+    try {
+        localStorage.setItem(CHECKLIST_STORAGE_KEY, JSON.stringify(gearChecklistItems));
+    } catch {
+        // ignore storage errors
+    }
+}
+
+function addChecklistItem(value) {
+    const label = String(value || '').trim();
+    const itemInput = document.getElementById('new-checklist-item');
+    if (!label) return;
+
+    gearChecklistItems.push({ label, packed: false });
+    saveChecklistItems();
+    if (itemInput) itemInput.value = '';
+    renderGearChecklist();
+}
+
+function renderGearChecklist() {
+    const list = document.getElementById('gear-checklist');
+    const summary = document.getElementById('checklist-summary');
+    if (!list || !summary) return;
+
+    list.innerHTML = '';
+    if (!gearChecklistItems.length) {
+        const emptyItem = document.createElement('li');
+        emptyItem.textContent = 'No gear items yet. Add one above.';
+        list.appendChild(emptyItem);
+    } else {
+        gearChecklistItems.forEach((item, index) => {
+            const listItem = document.createElement('li');
+            const label = document.createElement('label');
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.checked = item.packed;
+            checkbox.dataset.index = String(index);
+            checkbox.addEventListener('change', (event) => {
+                const idx = Number(event.target.dataset.index);
+                if (!Number.isNaN(idx)) {
+                    gearChecklistItems[idx].packed = event.target.checked;
+                    saveChecklistItems();
+                    updateChecklistSummary();
+                }
+            });
+            label.appendChild(checkbox);
+            label.appendChild(document.createTextNode(item.label));
+            listItem.appendChild(label);
+            list.appendChild(listItem);
+        });
+    }
+
+    updateChecklistSummary();
+}
+
+function updateChecklistSummary() {
+    const summary = document.getElementById('checklist-summary');
+    if (!summary) return;
+
+    const total = gearChecklistItems.length;
+    const packedCount = gearChecklistItems.filter((item) => item.packed).length;
+    summary.textContent = `${packedCount} of ${total} items packed`;
 }
 
 // Start the app by loading data, setting up controls, and rendering the page.
@@ -393,6 +616,9 @@ function initializeTripPlannerForm() {
         setupTrailSelect();
         bindAlertFilters();
         initializeTripPlannerForm();
+        initializeChecklist();
+        updateWeatherPlaceholders();
+        updateMapMarkerPosition();
         await renderPage();
     } catch (err) {
         console.error('Initialization error', err);

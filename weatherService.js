@@ -11,7 +11,7 @@ export function calculateScore(weather = {}) {
 }
 
 // WeatherService handles building the API URL, fetching weather data, and cleaning the result.
-class WeatherService {
+export class WeatherService {
     constructor() {
         this.defaultWeather = {
             temperature: 18,
