@@ -496,7 +496,7 @@ function initializeTripPlannerForm() {
     form.addEventListener('submit', handleTripFormSubmit);
 }
 
-const CHECKLIST_STORAGE_KEY = 'jipangea-gear-checklist';
+const CHECKLIST_STORAGE_KEY = 'nettletrail-gear-checklist';
 const gearChecklistItems = [];
 
 function initializeChecklist() {
@@ -517,6 +517,11 @@ function initializeChecklist() {
             addChecklistItem(itemInput.value);
         }
     });
+
+    const clearButton = document.getElementById('clear-checklist-btn');
+    if (clearButton) {
+        clearButton.addEventListener('click', clearChecklist);
+    }
 
     renderGearChecklist();
 }
@@ -596,6 +601,12 @@ function renderGearChecklist() {
     }
 
     updateChecklistSummary();
+}
+
+function clearChecklist() {
+    gearChecklistItems.length = 0;
+    saveChecklistItems();
+    renderGearChecklist();
 }
 
 function updateChecklistSummary() {

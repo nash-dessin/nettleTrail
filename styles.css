@@ -150,8 +150,9 @@ button, input, select { font: inherit; }
 .checklist-card li { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
 .checklist-card label { display:flex; align-items:center; gap:10px; width:100%; color:#e6eef8; }
 .checklist-card input[type='checkbox'] { width:16px; height:16px; accent-color:var(--primaryBlue); }
-.checklist-actions { display:flex; gap:10px; align-items:center; margin-top:12px; }
-.checklist-actions input[type='text'] { flex:1; padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.06); color:#e6eef8; }
+.checklist-actions { display:flex; gap:10px; align-items:center; margin-top:12px; flex-wrap:wrap; }
+.checklist-actions input[type='text'] { flex:1; min-width:180px; padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.06); color:#e6eef8; }
+.secondary-button { background:rgba(255,255,255,0.08); color:#e6eef8; border:1px solid rgba(255,255,255,0.12); }
 
 .alert-header { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; margin-bottom:18px; }
 .alert-filters { display:flex; gap:18px; flex-wrap:wrap; align-items:center; margin-bottom:18px; }

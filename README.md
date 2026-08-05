@@ -1,6 +1,6 @@
-# Jipangea Dashboard
+# NettleTrail Dashboard
 
-Jipangea is a static hiking planner focused on trails and nearby weather for route planning.
+NettleTrail is a static hiking planner focused on trails and nearby weather for route planning.
 
 What this workspace contains
 

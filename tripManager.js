@@ -1,5 +1,5 @@
 export class TripManager {
-    constructor(storageKey = 'jipangea-trip-plans') {
+    constructor(storageKey = 'nettletrail-trip-plans') {
         this.storageKey = storageKey;
     }
 
