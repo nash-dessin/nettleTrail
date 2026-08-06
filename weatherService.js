@@ -1,4 +1,4 @@
-// Turn raw weather numbers into a simple safety score from 0 to 100.
+// Turning raw weather numbers into a simple safety score from 0 to 100.
 export function calculateScore(weather = {}) {
     const { precipitation = 0, windSpeed = 0, uvIndex = 0, visibility = 10 } = weather;
 
@@ -23,14 +23,15 @@ export class WeatherService {
         };
     }
 
-    // Create the Open-Meteo request URL for a location and selected daily fields.
+    // Creates the Open-Meteo request URL for graph
     buildApiUrl(latitude, longitude, dailyParams = []) {
-        const base = 'https://api.open-meteo.com/v1/forecast';
+        const base = 'https://api.open-meteo.com/v1/forecast';        
         const daily = encodeURIComponent(dailyParams.join(','));
         return `${base}?latitude=${encodeURIComponent(latitude)}&longitude=${encodeURIComponent(longitude)}&daily=${daily}&timezone=auto`;
     }
 
-    // Fetch JSON from the weather API and cancel if it takes too long.
+
+    // Fetch JSON from the weather API + cancelling if it takes too long.
     async fetchWithTimeout(url, timeout = 12000) {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), timeout);
@@ -47,14 +48,14 @@ export class WeatherService {
         }
     }
 
-    // Fetch the weather and normalize the data into the app's expected shape.
+    // Fetch the weather +  into the app's expected shape.
     async fetchWeather(latitude, longitude, dailyParams = []) {
         const url = this.buildApiUrl(latitude, longitude, dailyParams);
         const raw = await this.fetchWithTimeout(url);
         return this.processWeather(raw);
     }
 
-    // Turn the raw API response into a clean weather object the app can use.
+    // Turning the raw API response into a clean weather object the app can use.
     processWeather(raw) {
         const daily = raw.daily || {};
         const precipitation = daily.precipitation_sum || [];
@@ -96,7 +97,7 @@ export class WeatherService {
         };
     }
 
-    // Add common unit conversions so the UI can show Fahrenheit, miles per hour, and inches.
+    // Adding common unit conversions so the UI can show Fahrenheit, miles per hour, and inches.
     convertUnits(weather = {}) {
         const { temperature = 0, windSpeed = 0, precipitation = 0 } = weather;
         return {

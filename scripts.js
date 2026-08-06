@@ -1,4 +1,4 @@
-// Loading the modules that handle weather data, trip saving, and trail details.
+// Loading the js files that handle weather data, trip saving, and trail details.
 import { WeatherService } from './weatherService.js';
 import { TripManager } from './tripManager.js';
 import { Trail } from './trails.js';
@@ -94,8 +94,6 @@ function setupTrailSelect() {
     const select = document.querySelector('#trail-select');
     const city = region.selectedCity || getCities(region.trails)[0];
     const trails = getTrailsForCity(region.trails, city);
-    // Ensure we pick a default trail for the chosen city even if the
-    // page doesn't include a trail `<select>` (some pages only show the hero).
     if (trails.length) {
         if (!region.selectedTrailName || !trails.some((trail) => trail.name === region.selectedTrailName)) {
             region.selectedTrailName = trails[0].name;
@@ -105,7 +103,6 @@ function setupTrailSelect() {
     if (!trails.length) return;
 
     if (!select) {
-        // No trail selector on this page, we've already set selectedTrailName above.
         return;
     }
 
@@ -187,7 +184,7 @@ function updateWeatherPlaceholders() {
     updateRiskBadge(trail.riskOverview || { riskLevel: (weather && weather.riskLevel) || 'unknown', riskText: (weather && weather.riskText) || '' });
 }
 
-// Update the risk badge text and class based on the trail's risk level.
+//  Risk badge
 function updateRiskBadge(trailData) {
     const badge = document.getElementById('risk-badge');
     const copy = document.getElementById('risk-copy');
@@ -204,25 +201,12 @@ function updateRiskBadge(trailData) {
     if (copy) copy.textContent = text;
 }
 
-function updateMapMarkerPosition() {
-    if (!map || !mapMarker) return;
-
-    const trail = getSelectedTrail(region.trails, region.selectedTrailName);
-    if (!trail) return;
-
-    const position = { lat: trail.latitude, lng: trail.longitude };
-    map.setCenter(position);
-    mapMarker.setPosition(position);
-    mapMarker.setTitle(`Selected trail region: ${trail.name}`);
-    map.setZoom(10);
-}
-
-// Ask the weather service for daily weather data.
+//      For weather service to pull daily weather data.
 async function fetchWeatherDaily(latitude, longitude, dailyParams) {
     return weatherService.fetchWeather(latitude, longitude, dailyParams);
 }
 
-// Fetch and render the rain chart for the selected city.
+// Fetch and render the rain chart for the selected city in wind rain page.
 async function updateWindRainGraphs(city) {
     const { lat, lon } = getCoordinatesForCity(region.trails, city);
     const dailyParams = ['precipitation_sum', 'precipitation_hours'];
@@ -258,66 +242,7 @@ async function updateWindRainGraphs(city) {
     }
 }
 
-// Fetch and render the main weather overview chart.
-async function updateIndexGraph(city) {
-    const { lat, lon } = getCoordinatesForCity(region.trails, city);
-    const dailyParams = ['precipitation_sum', 'temperature_2m_max', 'temperature_2m_min', 'uv_index_max', 'weather_code'];
-    try {
-        const weather = await fetchWeatherDaily(lat, lon, dailyParams);
-        const labels = weather.time || [];
-        const tMax = weather.temperatureMax || [];
-        const tMin = weather.temperatureMin || [];
-        const precip = weather.precipitation || [];
-        await loadChartJs();
-
-        let container = document.getElementById('index-daily-chart');
-        if (!container) {
-            const sevenDay = document.getElementById('seven-day');
-            if (!sevenDay) return;
-            container = document.createElement('div');
-            container.id = 'index-daily-chart';
-            container.className = 'card chart-card';
-            container.style.minHeight = '260px';
-            sevenDay.parentNode.insertBefore(container, sevenDay);
-        }
-
-        renderBarLineChart('index-daily-chart', labels, [
-            {
-                type: 'line',
-                label: 'Max Temp (°C)',
-                data: tMax,
-                borderColor: '#ff7f0e',
-                backgroundColor: 'rgba(255,127,14,0.1)',
-                yAxisID: 'y1',
-            },
-            {
-                type: 'line',
-                label: 'Min Temp (°C)',
-                data: tMin,
-                borderColor: '#2ca02c',
-                backgroundColor: 'rgba(44,160,44,0.1)',
-                yAxisID: 'y1',
-            },
-            {
-                type: 'bar',
-                label: 'Precipitation (mm)',
-                data: precip,
-                backgroundColor: 'rgba(31,119,180,0.4)',
-                yAxisID: 'y',
-            },
-        ], {
-            scales: {
-                y: { position: 'left', beginAtZero: true },
-                y1: { position: 'right', beginAtZero: false, grid: { drawOnChartArea: false } },
-            },
-        });
-    } catch (err) {
-        console.error('Index graph error', err);
-        showError('#index-daily-chart', 'Unable to load overview weather data.');
-    }
-}
-
-// Build the alert list based on trail weather warnings and filter settings.
+// Filtered alert list 
 function renderAlerts() {
     const list = document.querySelector('#alerts-list');
     if (!list) return;
@@ -363,10 +288,7 @@ function renderTripPlanner() {
 
     const beginnerArea = document.getElementById('beginner-trails');
     if (beginnerArea) {
-        const beginnerTrails = Trail.filterBeginnerTrails(region.trails);
-        beginnerArea.innerHTML = beginnerTrails.length
-            ? `<strong>Beginner trails:</strong> ${beginnerTrails.map((trail) => trail.name).join(', ')}`
-            : '<strong>No beginner trails available.</strong>';
+        beginnerArea.innerHTML = '';
     }
 }
 
@@ -421,9 +343,6 @@ function updatePlannerSummary() {
         alertArea.innerHTML = warnings
             .map((warning) => `<div class="planner-alert">✓ ${warning}</div>`)
             .join('');
-        if (!warnings.length) {
-            alertArea.innerHTML = `<div class="planner-alert">✓ No immediate safety issues. ${classification}</div>`;
-        }
     }
 }
 
@@ -618,7 +537,7 @@ function updateChecklistSummary() {
     summary.textContent = `${packedCount} of ${total} items packed`;
 }
 
-// Start the app by loading data, setting up controls, and rendering the page.
+// LOADS DATA
 (async function init() {
     try {
         await loadData();

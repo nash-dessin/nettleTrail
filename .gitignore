@@ -1,2 +1,6 @@
 node_modules
 jest.config.js
+scripts.js
+trails.js
+tripManager.js
+weatherService.js

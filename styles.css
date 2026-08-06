@@ -16,14 +16,14 @@
 * { box-sizing: border-box; }
 
 
-html,body { height:100%; margin:0; background:var(--bg); color:#e6eef8; font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; }
+html,body { height:100%; margin:0; background:var(--bg); color:#e6eef8; font-family: 'JetBrains Mono', 'Courier New', monospace; }
 
 button, input, select { font: inherit; }
 
 .app-shell { max-width:1200px; margin:0 auto; padding:20px; }
 
 .hero { display:flex; justify-content:space-between; gap:20px; align-items:center; padding:20px; border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); margin-bottom:20px; }
-.hero h1 { margin:0; font-family: 'Roboto Slab', serif; font-size: clamp(1.8rem, 2.4vw, 3rem); letter-spacing: -0.03em; }
+.hero h1 { margin:0; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: clamp(1.8rem, 2.4vw, 3rem); letter-spacing: -0.03em; }
 .hero p { margin:0; color:var(--muted); font-size:1rem; max-width:520px; }
 
 .selector-panel { min-width:220px; }
@@ -89,7 +89,7 @@ button, input, select { font: inherit; }
 .small-card { min-height:100px; }
 .metric-meta { color:var(--muted); font-size:0.95rem; }
 .card, .checklist-card, .trail-card, .metric-card { background: rgba(11,18,32,0.72); border-radius:16px; padding:18px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.04); }
-.card h2, .trail-card h2 { margin:0 0 12px; font-family: 'Roboto Slab', serif; }
+.card h2, .trail-card h2 { margin:0 0 12px; font-family: 'JetBrains Mono', 'Courier New', monospace; }
 
 .badge { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:var(--glass); color:var(--water); font-weight:700; }
 .offline-badge { background: rgba(255,255,255,0.03); padding:6px 10px; border-radius:10px; color:var(--muted); font-weight:600; }
