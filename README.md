@@ -25,23 +25,7 @@ Files
 - weather-mockData.json — Local dataset (array of trail objects)
 - chart.js — small chart helpers used by some pages
 
-Data format
-
-The app expects `weather-mockData.json` to be an array of trail objects with fields similar to:
-
-{
-	"name": "Trail Name",
-	"city": "City Name",
-	"region": "Region",
-	"distanceKm": 12,
-	"durationHours": 3,
-	"difficulty": "Moderate",
-	"terrain": "Rocky ridge",
-	"features": ["waterfall", "views"]
-}
-
-`scripts.js` uses `fetch('./weather-mockData.json')` and derives cities and per-city trail lists from that array.
 
 Running locally
 
-Open `index.html` in your browser. 
+Open https://nettletrail.pages.dev in your browser. 
