@@ -81,4 +81,4 @@ function getEstimatedFinish(trail, planner = {}) {
   return `${normalizedHour}:${String(finishMinute).padStart(2, '0')} ${finishMeridiem}`;
 }
 
-export { calculateTrailReadiness, getEstimatedFinish, getRecommendedStart };
+module.exports = { calculateTrailReadiness, getEstimatedFinish, getRecommendedStart };

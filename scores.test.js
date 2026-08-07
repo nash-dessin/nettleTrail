@@ -3,6 +3,7 @@ const {
   getRecommendedStart
 } = require('./scores');
 
+
 test('getRecommendedStart and getEstimatedFinish return planner-friendly times', () => {
   const trail = {
     name: 'Mt Longonot Summit',
