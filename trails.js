@@ -314,6 +314,34 @@ function generateAdvice(weather) {
   return advice;
 }
 
+// Choose a weather emoji to match the description text.
+function mapConditionToEmoji(condition) {
+  if (!condition) {
+    return '❔';
+  }
+
+  if (/snow/i.test(condition)) {
+    return '❄️';
+  }
+
+  if (/storm|thunder|rain|shower/i.test(condition)) {
+    return '🌧️';
+  }
+
+  if (/cloud/i.test(condition)) {
+    return '⛅';
+  }
+
+  if (/sun|clear/i.test(condition)) {
+    return '☀️';
+  }
+
+  if (/wind/i.test(condition)) {
+    return '💨';
+  }
+
+  return '🌤️';
+}
 
 // Update the header panel with the selected trail’s summary weather details.
 function renderHero(trail) {
