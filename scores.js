@@ -1,5 +1,5 @@
-// Taking the trail details and planner choices, then return a simple readiness score out of 100.
-function calculateTrailReadiness(trail, planner = {}) {
+// Take the trail details and planner choices, then return a simple readiness score out of 100.
+export function calculateTrailReadiness(trail, planner = {}) {
   if (!trail) {
     return 0;
   }
@@ -23,8 +23,8 @@ function calculateTrailReadiness(trail, planner = {}) {
   return Math.max(0, Math.min(100, Math.round(adjustedScore)));
 }
 
-// Suggesting a start time based on the trail's weather and conditions.
-function getRecommendedStart(trail) {
+// Suggest a start time based on the trail's weather and conditions.
+export function getRecommendedStart(trail) {
   if (!trail) {
     return '6:30 AM';
   }
@@ -45,8 +45,8 @@ function getRecommendedStart(trail) {
   return '6:30 AM';
 }
 
-// Taking the planned start time and hike duration, then estimate when the hike will finish.
-function getEstimatedFinish(trail, planner = {}) {
+// Take the planned start time and hike duration, then estimate when the hike will finish.
+export function getEstimatedFinish(trail, planner = {}) {
   if (!trail) {
     return '—';
   }
@@ -81,4 +81,6 @@ function getEstimatedFinish(trail, planner = {}) {
   return `${normalizedHour}:${String(finishMinute).padStart(2, '0')} ${finishMeridiem}`;
 }
 
-module.exports = { calculateTrailReadiness, getEstimatedFinish, getRecommendedStart };
+const scoreHelpers = { calculateTrailReadiness, getEstimatedFinish, getRecommendedStart };
+
+export default scoreHelpers;

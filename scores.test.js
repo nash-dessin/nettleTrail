@@ -1,8 +1,4 @@
-const {
-  getEstimatedFinish,
-  getRecommendedStart
-} = require('./scores');
-
+import { getEstimatedFinish, getRecommendedStart } from './scores.js';
 
 test('getRecommendedStart and getEstimatedFinish return planner-friendly times', () => {
   const trail = {
