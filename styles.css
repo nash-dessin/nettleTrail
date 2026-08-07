@@ -45,12 +45,6 @@ button, input, select { font: inherit; }
 .overview-stats { width:58%; display:flex; flex-direction:column; gap:18px; }
 .overview-controls { width:40%; display:flex; flex-direction:column; gap:16px; }
 
-.chart-container {
-    position: relative;
-    width: 100%;
-    height: 220px;
-}
-
 .hourly-card h2,
 .risk-card h2 { margin-bottom:12px; }
 .forecast-description { margin:0 0 12px; color:#cbd5e1; }
@@ -61,9 +55,39 @@ button, input, select { font: inherit; }
 .risk-card { display:flex; flex-direction:column; gap:12px; }
 .risk-badge { display:inline-flex; align-items:center; padding:8px 14px; border-radius:999px; border:1px solid currentColor; font-weight:700; }
 .risk-badge.low { color:#4ade80; border-color:#4ade80; }
-.risk-badge.moderate { color:var(--cautionYellow); border-color:var(--cautionYellow); }
+.risk-badge.moderate, .risk-badge.medium { color:var(--cautionYellow); border-color:var(--cautionYellow); }
 .risk-badge.high { color:var(--dangerRed); border-color:var(--dangerRed); }
 .risk-copy { margin:0; color:#dbeafe; font-weight:600; }
+.risk-description { margin:0; color:var(--muted); line-height:1.6; }
+.chart-container {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:flex-start;
+}
+.hourly-point {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  align-items:center;
+  justify-content:center;
+  padding:10px 12px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.06);
+  min-width:54px;
+  width: 62px;
+  max-width: 62px;
+  text-align:center;
+}
+.hourly-point span {
+  font-size:0.78rem;
+  color:var(--muted);
+}
+.hourly-point strong {
+  font-size:1rem;
+}
+.forecast-mini-card { display:flex; flex-direction:column; gap:10px; padding:16px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:16px; }
+.condition-card { min-height:auto; }
 
 .overview-metrics { margin-top:24px; }
 .metrics-grid { grid-template-columns: repeat(4, minmax(140px, 1fr)); }
@@ -97,7 +121,7 @@ button, input, select { font: inherit; }
 .map-controls { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:16px; }
 .map-grid { display:grid; grid-template-columns: 1.6fr 0.9fr; gap:18px; margin-bottom:18px; }
 .map-view { position:relative; min-height:420px; border-radius:20px; overflow:hidden; background:linear-gradient(135deg, rgba(6,182,212,0.16), rgba(15,23,32,0.96)); border:1px solid rgba(255,255,255,0.05); }
-.map-canvas { position:absolute; inset:0; }
+#location-photo img { width:100%; height:100%; object-fit:cover; display:block; }
 .trail-overlay { position:absolute; inset:0; pointer-events:none; }
 .waypoint { position:absolute; width:18px; height:18px; border-radius:50%; background:var(--primaryBlue); border:2px solid #fff; cursor:pointer; box-shadow:0 0 0 4px rgba(6,182,212,0.14); pointer-events:auto; }
 .waypoint.active { background:var(--water); box-shadow:0 0 0 4px rgba(56,189,248,0.22); }
@@ -107,14 +131,27 @@ button, input, select { font: inherit; }
 .layer.active { background:rgba(255,255,255,0.02); color:var(--primaryBlue); }
 
 .trail-summary h2, .safety-notes h3, .alert-header h2, .checklist-header h3 { margin-top:0; }
+.trail-summary { display:flex; flex-direction:column; gap:12px; }
+.trail-summary-content { display:flex; flex-direction:column; gap:10px; }
+.summary-empty { margin:0; color:var(--muted); }
+.summary-title { margin:0 0 4px; font-size:1.05rem; color:#f8fafc; }
+.summary-list { display:grid; gap:8px; padding:0; margin:0; list-style:none; }
+.summary-list li { display:flex; justify-content:space-between; gap:10px; align-items:flex-start; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+.summary-list span { color:var(--muted); font-size:0.9rem; }
+.summary-list strong { color:#f8fafc; text-align:right; font-size:0.95rem; }
+.facility-pill { display:inline-flex; align-items:center; padding:4px 8px; border-radius:999px; background:rgba(56,189,248,0.12); color:#bae6fd; font-size:0.8rem; }
 .trail-stats { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:16px; margin-top:0; }
 .trail-stat { display:flex; flex-direction:column; gap:6px; }
 .trail-stat strong { font-size:1.2rem; }
 
 .elevation-card { display:flex; flex-direction:column; gap:18px; }
 .elevation-header { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; }
+.elevation-controls { display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px; align-items:flex-end; }
+.elevation-controls label { color:var(--muted); font-size:0.95rem; display:block; }
+.elevation-controls select { min-width:220px; width:100%; max-width:320px; padding:12px 14px; border-radius:12px; background:rgba(255,255,255,0.05); color:inherit; border:1px solid rgba(255,255,255,0.05); }
 .metric-detail { text-align:right; }
 .metric-detail .metric { margin-bottom:0; }
+.metric-sub { margin:4px 0 0; color:var(--muted); font-size:0.95rem; }
 .band-row { display:grid; grid-template-columns: 1fr 2fr 1fr; gap:12px; align-items:center; padding:14px; background:rgba(255,255,255,0.03); border-radius:14px; }
 .band-label { font-weight:700; color:#fff; }
 .band-bar { position:relative; height:14px; background:rgba(255,255,255,0.08); border-radius:999px; overflow:hidden; }

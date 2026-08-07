@@ -17,46 +17,41 @@
                 <label for="city-select">Select a region</label>
                 <select id="city-select"></select>
             </div>
+            <div class="selector-panel">
+                <label for="trail-select">Select a trail</label>
+                <select id="trail-select"></select>
+            </div>
         </header>
 
         <nav class="tabs" aria-label="Main navigation">
             <ul class="tab-list">
-                <li><a class="tab" href="index.html">Overview</a></li>
-                <li><a class="tab" href="tripPlan.html">Trip Planner</a></li>
+                <li><a class="tab" href="overview.html">Overview</a></li>
+                <li><a class="tab" href="tripPlanner.html">Trip Planner</a></li>
                 <li><a class="tab active" aria-current="page" href="trailMap.html">Trail Map</a></li>
                 <li><a class="tab" href="elevationForecast.html">Elevation Forecast</a></li>
                 <li><a class="tab" href="windRain.html">Wind & Rain</a></li>
-                <li><a class="tab" href="safety.html">Safety</a></li>
+                <li><a class="tab" href="safetyInfo.html">Safety</a></li>
                 <li><a class="tab" href="alerts.html">Alerts</a></li>
             </ul>
         </nav>
 
         <main>
             <section id="trail-map" class="page-section">
-                <div class="map-controls">
-                    <div class="layer-switcher">
-                        <button data-layer="topography" class="layer active">Topo</button>
-                        <button data-layer="satellite" class="layer">Satellite</button>
-                        <button data-layer="wind" class="layer">Wind</button>
-                        <button data-layer="rain" class="layer">Rain</button>
-                    </div>
-                    <span class="offline-badge">Offline-ready</span>
-                </div>
                 <div class="map-grid">
-                    <div id="map" class="map-view">
-                        <div id="google-map" class="map-canvas"></div>
-                        <div class="trail-overlay" id="trail-overlay"></div>
+                    <div id="location-photo" class="map-view">
+                        <p class="summary-empty">Select a region to view trail photos.</p>
                     </div>
                     <aside class="card trail-summary" id="waypoint-panel">
-                        <h2>Waypoint overview</h2>
-                        <p>Select a trail waypoint to review live conditions.</p>
+                        <h2>Trail summary</h2>
+                        <div id="trail-summary-content" class="trail-summary-content">
+                            <p class="summary-empty">Select a region to review trail details.</p>
+                        </div>
                     </aside>
                 </div>
                 <div id="trail-stats" class="card trail-stats"></div>
             </section>
         </main>
     </div>
-    <script type="module" src="scripts.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtqq1pQ9Eo5x_oLqvgUh1yrbN6WUvHDW8&callback=initMap"></script>
+    <script type="module" src="trails.js"></script>
 </body>
 </html>

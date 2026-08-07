@@ -21,12 +21,12 @@
 
         <nav class="tabs" aria-label="Main navigation">
             <ul class="tab-list">
-                <li><a class="tab" href="index.html">Overview</a></li>
-                <li><a class="tab" href="tripPlan.html">Trip Planner</a></li>
+                <li><a class="tab" href="overview.html">Overview</a></li>
+                <li><a class="tab" href="tripPlanner.html">Trip Planner</a></li>
                 <li><a class="tab" href="trailMap.html">Trail Map</a></li>
                 <li><a class="tab active" aria-current="page" href="elevationForecast.html">Elevation Forecast</a></li>
                 <li><a class="tab" href="windRain.html">Wind & Rain</a></li>
-                <li><a class="tab" href="safety.html">Safety</a></li>
+                <li><a class="tab" href="safetyInfo.html">Safety</a></li>
                 <li><a class="tab" href="alerts.html">Alerts</a></li>
             </ul>
         </nav>
@@ -39,15 +39,23 @@
                             <h2>Elevation bands</h2>
                         </div>
                         <div class="metric-detail">
-                            <span class="metric">3,400m</span>
-                            <p class="metric-meta">Highest forecast band</p>
+                            <span class="metric" id="elevation-metric">3,400m</span>
+                            <p class="metric-meta" id="elevation-meta">Highest forecast band</p>
+                            <p class="metric-sub" id="highest-point">Highest point: 3,400 m</p>
+                            <p class="metric-sub" id="elevation-gain">Elevation gain: 650 m</p>
                         </div>
+                    </div>
+                    <div class="elevation-controls">
+                        <label for="trail-select">Select trail</label>
+                        <select id="trail-select">
+                            <option value="">Select a trail</option>
+                        </select>
                     </div>
                     <div id="elevation-chart" class="chart-container"></div>
                 </div>
             </section>
         </main>
     </div>
-    <script type="module" src="scripts.js"></script>
+    <script type="module" src="trails.js"></script>
 </body>
 </html>

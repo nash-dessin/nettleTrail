@@ -1,0 +1,407 @@
+
+[
+  {
+    "name": "Ngong Hills Trail",
+    "images": [
+      "./NogonHills.jpeg"
+    ],
+    "county": "Nairobi",
+    "region": "Nairobi",
+    "latitude": -1.4000,
+    "longitude": 36.7000,
+    "distanceKm": 20,
+    "durationHours": 5,
+    "highest pointM": 2460,
+    "difficulty": "Moderate",
+    "elevationGainM": 650,
+    "terrain": "Hilly terrain",
+    "facilities": ["Parking", "Washroom", "Water"],
+    "weatherProfile": "weatherProfiles.Nairobi",
+    "averageWindSpeed": "12 km/h",
+    "windAdv": "Wind can be strong in open areas, so be prepared for gusts.",
+    "rainIntensity": "Moderate",
+    "rainAccumulation": "Moderate",
+    "visibility": "Good",
+    "forecastDesc": "Cloudy with occasional sun breaks.",
+    "forecastTemp": "20°C",
+    "forecastSub": "2,460 m · Feels like 19°C · Wind 12 km/h",
+    "hourlyForecast": [
+      {"time": "08:00", "temp": "18°C", "condition": "Clear"},
+      {"time": "09:00", "temp": "19°C", "condition": "Partly Cloudy"},
+      {"time": "10:00", "temp": "20°C", "condition": "Cloudy"},
+      {"time": "11:00", "temp": "21°C", "condition": "Sunny"},
+      {"time": "12:00", "temp": "22°C", "condition": "Sunny"},
+      {"time": "13:00", "temp": "23°C", "condition": "Partly Cloudy"},
+      {"time": "14:00", "temp": "24°C", "condition": "Clear"},
+      {"time": "15:00", "temp": "25°C", "condition": "Clear"}
+    ],
+    "weather": {
+      "current": {
+        "temp": 20,
+        "feelsLike": 19,
+        "humidity": 68,
+        "wind": 12,
+        "visibility": 10,
+        "precipitation": 12,
+        "description": "Cloudy with occasional sun breaks."
+      },
+      "hourly": [
+        {"time": "08:00", "temp": "18°C", "condition": "Clear"},
+        {"time": "09:00", "temp": "19°C", "condition": "Partly Cloudy"},
+        {"time": "10:00", "temp": "20°C", "condition": "Cloudy"},
+        {"time": "11:00", "temp": "21°C", "condition": "Sunny"},
+        {"time": "12:00", "temp": "22°C", "condition": "Sunny"},
+        {"time": "13:00", "temp": "23°C", "condition": "Partly Cloudy"},
+        {"time": "14:00", "temp": "24°C", "condition": "Clear"},
+        {"time": "15:00", "temp": "25°C", "condition": "Clear"}
+      ],
+      "daily": [
+        {"day": "Mon", "condition": "Clear", "min": 16, "max": 24},
+        {"day": "Tue", "condition": "Partly Cloudy", "min": 17, "max": 25},
+        {"day": "Wed", "condition": "Cloudy", "min": 18, "max": 24},
+        {"day": "Thu", "condition": "Sunny", "min": 17, "max": 26},
+        {"day": "Fri", "condition": "Rain Showers", "min": 16, "max": 22},
+        {"day": "Sat", "condition": "Clear", "min": 17, "max": 24},
+        {"day": "Sun", "condition": "Partly Cloudy", "min": 18, "max": 25}
+      ]
+    },
+    "riskOverview": {
+      "riskLevel": "Low",
+      "riskDetails": "No significant weather risks expected."
+    },
+    "features": ["hiking", "scenic views", "wildlife"]
+  },
+
+  {
+    "name": "Karura Forest",
+    "images": [
+      "./Karura.jpg"
+    ],
+    "county": "Nairobi",
+    "region": "Nairobi",
+    "latitude": -1.2500,
+    "longitude": 36.8000,
+    "distanceKm": 10,
+    "durationHours": 3,
+    "highest pointM": 1800,
+    "difficulty": "Easy",
+    "elevationGainM": 200,
+    "terrain": "Forest trails",
+    "facilities": ["Parking", "Washroom", "Water"],
+    "weatherProfile": "weatherProfiles.Nairobi",
+    "averageWindSpeed": "10 km/h",
+    "windAdv": "Wind can be strong in open areas, so be prepared for gusts.",
+    "rainIntensity": "Low",
+    "rainAccumulation": "Minimal",
+    "visibility": "Good",
+    "forecastDesc": "Sunny with occasional clouds.",
+    "forecastTemp": "24°C",
+    "forecastSub": "1,800 m · Feels like 23°C · Wind 10 km/h",
+    "hourlyForecast": [
+      {"time": "08:00", "temp": "22°C", "condition": "Clear"},
+      {"time": "09:00", "temp": "23°C", "condition": "Partly Cloudy"},
+      {"time": "10:00", "temp": "24°C", "condition": "Sunny"},
+      {"time": "11:00", "temp": "25°C", "condition": "Sunny"},
+      {"time": "12:00", "temp": "26°C", "condition": "Sunny"},
+      {"time": "13:00", "temp": "27°C", "condition": "Partly Cloudy"},
+      {"time": "14:00", "temp": "28°C", "condition": "Clear"},
+      {"time": "15:00", "temp": "29°C", "condition": "Clear"}
+    ],
+    "weather": {
+      "current": {
+        "temp": 24,
+        "feelsLike": 23,
+        "humidity": 60,
+        "wind": 10,
+        "visibility": 12,
+        "precipitation": 5,
+        "description": "Sunny with occasional clouds."
+      },
+      "hourly": [
+        {"time": "08:00", "temp": "22°C", "condition": "Clear"},
+        {"time": "09:00", "temp": "23°C", "condition": "Partly Cloudy"},
+        {"time": "10:00", "temp": "24°C", "condition": "Sunny"},
+        {"time": "11:00", "temp": "25°C", "condition": "Sunny"},
+        {"time": "12:00", "temp": "26°C", "condition": "Sunny"},
+        {"time": "13:00", "temp": "27°C", "condition": "Partly Cloudy"},
+        {"time": "14:00", "temp": "28°C", "condition": "Clear"},
+        {"time": "15:00", "temp": "29°C", "condition": "Clear"}
+      ],
+      "daily": [
+        {"day": "Mon", "condition": "Sunny", "min": 20, "max": 29},
+        {"day": "Tue", "condition": "Partly Cloudy", "min": 21, "max": 28},
+        {"day": "Wed", "condition": "Sunny", "min": 22, "max": 30},
+        {"day": "Thu", "condition": "Clear", "min": 21, "max": 29},
+        {"day": "Fri", "condition": "Partly Cloudy", "min": 20, "max": 27},
+        {"day": "Sat", "condition": "Sunny", "min": 21, "max": 28},
+        {"day": "Sun", "condition": "Cloudy", "min": 22, "max": 26}
+      ]
+    },
+    "riskOverview": {
+      "riskLevel": "Low",
+      "riskDetails": "No significant weather risks expected."
+    },
+    "features": ["forest trails", "wildlife", "scenic views"]
+  },
+
+  {
+    "name": "Mt Longonot Summit",
+    "images": [
+      "./Longonot.jpg"
+    ],
+    "county": "Nakuru",
+    "region": "Nakuru",
+    "latitude": -0.9225,
+    "longitude": 36.3989,
+    "distanceKm": 21,
+    "durationHours": 6,
+    "highest pointM": 1820,
+    "difficulty": "Hard",
+    "elevationGainM": 900,
+    "terrain": "Crater rim",
+    "facilities": ["Parking", "Water", "Rest area"],
+    "weatherProfile": "weatherProfiles.Nakuru",
+    "averageWindSpeed": "20 km/h",
+    "windAdv": "Wind can be strong in open areas, so be prepared for gusts.",
+    "rainIntensity": "High",
+    "rainAccumulation": "Significant",
+    "visibility": "Moderate",
+    "forecastDesc": "Partly cloudy.",
+    "forecastTemp": "18°C",
+    "forecastSub": "1,820 m · Feels like 16°C · Wind 12 km/h",
+    "hourlyForecast": [
+      {"time": "08:00", "temp": "16°C", "condition": "Clear"},
+      {"time": "09:00", "temp": "17°C", "condition": "Partly Cloudy"},
+      {"time": "10:00", "temp": "18°C", "condition": "Cloudy"},
+      {"time": "11:00", "temp": "19°C", "condition": "Rain Showers"},
+      {"time": "12:00", "temp": "20°C", "condition": "Rain Showers"},
+      {"time": "13:00", "temp": "21°C", "condition": "Cloudy"},
+      {"time": "14:00", "temp": "22°C", "condition": "Partly Cloudy"},
+      {"time": "15:00", "temp": "23°C", "condition": "Clear"}
+    ],
+    "weather": {
+      "current": {
+        "temp": 18,
+        "feelsLike": 16,
+        "humidity": 78,
+        "wind": 12,
+        "visibility": 8,
+        "precipitation": 25,
+        "description": "Partly cloudy with rain showers later in the day."
+      },
+      "hourly": [
+        {"time": "08:00", "temp": "16°C", "condition": "Clear"},
+        {"time": "09:00", "temp": "17°C", "condition": "Partly Cloudy"},
+        {"time": "10:00", "temp": "18°C", "condition": "Cloudy"},
+        {"time": "11:00", "temp": "19°C", "condition": "Rain Showers"},
+        {"time": "12:00", "temp": "20°C", "condition": "Rain Showers"},
+        {"time": "13:00", "temp": "21°C", "condition": "Cloudy"},
+        {"time": "14:00", "temp": "22°C", "condition": "Partly Cloudy"},
+        {"time": "15:00", "temp": "23°C", "condition": "Clear"}
+      ],
+      "daily": [
+        {"day": "Mon", "condition": "Partly Cloudy", "min": 15, "max": 20},
+        {"day": "Tue", "condition": "Rain Showers", "min": 16, "max": 21},
+        {"day": "Wed", "condition": "Cloudy", "min": 16, "max": 19},
+        {"day": "Thu", "condition": "Clear", "min": 15, "max": 22},
+        {"day": "Fri", "condition": "Cloudy", "min": 17, "max": 20},
+        {"day": "Sat", "condition": "Rain Showers", "min": 16, "max": 21},
+        {"day": "Sun", "condition": "Sunny", "min": 17, "max": 23}
+      ]
+    },
+    "riskOverview": {
+      "riskLevel": "Moderate",
+      "riskDetails": "Rain conditions · 1 to 3 PM"
+    },
+    "features": ["volcano", "lake views", "ridges"]
+  },
+
+  {
+    "name": "Mt Kilimambogo",
+    "images": [
+      "./Kilimambogo.jpg"
+    ],
+    "county": "Machakos",
+    "region": "Machakos",
+    "latitude": -1.5000,
+    "longitude": 37.2000,
+    "distanceKm": 12,
+    "durationHours": 5,
+    "highest pointM": 2460,
+    "difficulty": "Moderate",
+    "elevationGainM": 600,
+    "terrain": "Mountain trails",
+    "facilities": ["Parking", "Shelter", "Water"],
+    "weatherProfile": "weatherProfiles.Machakos",
+    "averageWindSpeed": "18 km/h",
+    "windAdv": "Wind can be strong in open areas, so be prepared for gusts.",
+    "rainIntensity": "Moderate",
+    "rainAccumulation": "Moderate",
+    "visibility": "Good",
+    "forecastDesc": "Partly cloudy with a chance of rain.",
+    "forecastTemp": "19°C",
+    "forecastSub": "2,000 m · Feels like 18°C · Wind 15 km/h",
+    "hourlyForecast": [
+      {"time": "08:00", "temp": "17°C", "condition": "Clear"},
+      {"time": "09:00", "temp": "18°C", "condition": "Partly Cloudy"},
+      {"time": "10:00", "temp": "19°C", "condition": "Cloudy"}
+    ],
+    "weather": {
+      "current": {
+        "temp": 19,
+        "feelsLike": 18,
+        "humidity": 70,
+        "wind": 15,
+        "visibility": 10,
+        "precipitation": 18,
+        "description": "Partly cloudy with a chance of rain."
+      },
+      "hourly": [
+        {"time": "08:00", "temp": "17°C", "condition": "Clear"},
+        {"time": "09:00", "temp": "18°C", "condition": "Partly Cloudy"},
+        {"time": "10:00", "temp": "19°C", "condition": "Cloudy"}
+      ],
+      "daily": [
+        {"day": "Mon", "condition": "Rain Showers", "min": 16, "max": 21},
+        {"day": "Tue", "condition": "Partly Cloudy", "min": 16, "max": 22},
+        {"day": "Wed", "condition": "Cloudy", "min": 15, "max": 20},
+        {"day": "Thu", "condition": "Clear", "min": 16, "max": 23},
+        {"day": "Fri", "condition": "Rain Showers", "min": 16, "max": 21},
+        {"day": "Sat", "condition": "Partly Cloudy", "min": 17, "max": 22},
+        {"day": "Sun", "condition": "Sunny", "min": 17, "max": 24}
+      ]
+    },
+    "riskOverview": {
+      "riskLevel": "Moderate",
+      "riskDetails": "Rain conditions · 11 AM to 2 PM"
+    },
+    "features": ["mountain trails", "scenic views", "wildlife"]
+  },
+
+  {
+    "name": "Mackinder’s Valley",
+    "images": [
+      "./MackinderValley.jpg"
+    ],
+    "county": "Meru",
+    "region": "Mt Kenya",
+    "latitude": -0.1667,
+    "longitude": 37.3500,
+    "distanceKm": 18,
+    "durationHours": 8,
+    "highest pointM": 4500,
+    "difficulty": "High",
+    "elevationGainM": 1400,
+    "terrain": "Alpine valley",
+    "facilities": ["Parking", "Shelter", "Water"],
+    "weatherProfile": "weatherProfiles.MtKenya",
+    "averageWindSpeed": "25 km/h",
+    "windAdv": "Wind can be strong in open areas, so be prepared for gusts.",
+    "rainIntensity": "High",
+    "rainAccumulation": "Significant",
+    "visibility": "Poor",
+    "forecastDesc": "Snow showers.",
+    "forecastTemp": "-5°C",
+    "forecastSub": "4,500 m · Feels like -10°C · Wind 30 km/h",
+    "hourlyForecast": [
+      {"time": "08:00", "temp": "-6°C", "condition": "Snow Showers"},
+      {"time": "09:00", "temp": "-5°C", "condition": "Snow Showers"},
+      {"time": "10:00", "temp": "-4°C", "condition": "Cloudy"}
+    ],
+    "weather": {
+      "current": {
+        "temp": -5,
+        "feelsLike": -10,
+        "humidity": 85,
+        "wind": 30,
+        "visibility": 3,
+        "precipitation": 35,
+        "description": "Snow showers with poor visibility and gusty winds."
+      },
+      "hourly": [
+        {"time": "08:00", "temp": "-6°C", "condition": "Snow Showers"},
+        {"time": "09:00", "temp": "-5°C", "condition": "Snow Showers"},
+        {"time": "10:00", "temp": "-4°C", "condition": "Cloudy"}
+      ],
+      "daily": [
+        {"day": "Mon", "condition": "Snow Showers", "min": -8, "max": -4},
+        {"day": "Tue", "condition": "Cloudy", "min": -7, "max": -3},
+        {"day": "Wed", "condition": "Snow Showers", "min": -9, "max": -5},
+        {"day": "Thu", "condition": "Clear", "min": -6, "max": -2},
+        {"day": "Fri", "condition": "Cloudy", "min": -7, "max": -3},
+        {"day": "Sat", "condition": "Snow Showers", "min": -8, "max": -4},
+        {"day": "Sun", "condition": "Clear", "min": -5, "max": -1}
+      ]
+    },
+    "riskOverview": {
+      "riskLevel": "High",
+      "riskDetails": "Snow conditions · 10 AM to 4 PM"
+    },
+    "features": ["high altitude", "glacial views", "multi-day"]
+  },
+
+  {
+    "name": "Elephant Hill",
+    "images": [
+      "./ElephantHill.jpeg"
+    ],
+    "county": "Nyandarua",
+    "region": "Nyandarua",
+    "latitude": -0.5000,
+    "longitude": 36.4000,
+    "distanceKm": 15,
+    "durationHours": 4,
+    "highest pointM": 2500,
+    "difficulty": "High",
+    "elevationGainM": 480,
+    "terrain": "Rolling hills",
+    "facilities": ["Parking", "Washroom", "Water"],
+    "weatherProfile": "weatherProfiles.Nyandarua",
+    "averageWindSpeed": "15 km/h",
+    "windAdv": "Wind can be strong in open areas, so be prepared for gusts.",
+    "rainIntensity": "Low",
+    "rainAccumulation": "Minimal",
+    "visibility": "Good",
+    "forecastDesc": "Sunny with occasional clouds.",
+    "forecastTemp": "22°C",
+    "forecastSub": "2,500 m · Feels like 21°C · Wind 15 km/h",
+    "hourlyForecast": [
+      {"time": "08:00", "temp": "20°C", "condition": "Clear"},
+      {"time": "09:00", "temp": "21°C", "condition": "Partly Cloudy"},
+      {"time": "10:00", "temp": "22°C", "condition": "Sunny"},
+      {"time": "11:00", "temp": "23°C", "condition": "Sunny"}
+    ],
+    "weather": {
+      "current": {
+        "temp": 22,
+        "feelsLike": 21,
+        "humidity": 55,
+        "wind": 15,
+        "visibility": 12,
+        "precipitation": 8,
+        "description": "Sunny with occasional clouds."
+      },
+      "hourly": [
+        {"time": "08:00", "temp": "20°C", "condition": "Clear"},
+        {"time": "09:00", "temp": "21°C", "condition": "Partly Cloudy"},
+        {"time": "10:00", "temp": "22°C", "condition": "Sunny"},
+        {"time": "11:00", "temp": "23°C", "condition": "Sunny"}
+      ],
+      "daily": [
+        {"day": "Mon", "condition": "Sunny", "min": 19, "max": 26},
+        {"day": "Tue", "condition": "Sunny", "min": 20, "max": 27},
+        {"day": "Wed", "condition": "Partly Cloudy", "min": 20, "max": 26},
+        {"day": "Thu", "condition": "Clear", "min": 19, "max": 27},
+        {"day": "Fri", "condition": "Partly Cloudy", "min": 20, "max": 25},
+        {"day": "Sat", "condition": "Sunny", "min": 20, "max": 26},
+        {"day": "Sun", "condition": "Clear", "min": 21, "max": 27}
+      ]
+    },
+    "riskOverview": {
+      "riskLevel": "Low",
+      "riskDetails": "No significant weather risks expected."
+    },
+    "features": ["hiking", "scenic views", "wildlife"]
+  }
+]
+
